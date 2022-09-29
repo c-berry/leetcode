@@ -5,7 +5,7 @@
 // If there are two middle nodes, return the second middle node.
 
 // This method only works if an array is provided, however, since the exercise uses linked lists, this solution is invalid:
-var middleNode = function(head) {
+var middleNode0 = function(head) {
     let arr = Array.from(head);
     let headStr = arr.join("");
     let mid = arr.length / 2;
@@ -15,7 +15,7 @@ var middleNode = function(head) {
 
 
 // This solution uses one slow pointer (.next) and one fast pointer (.next.next) to move thru the list returning the slow pointer when the fast pointer reaches the end of the list giving you the middle node:
-var middleNode2 = function (head) {
+var middleNode = function (head) {
     let pointerSlow = head;
     let pointerFast = head;
 
@@ -29,3 +29,34 @@ var middleNode2 = function (head) {
 
 //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
 //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
+
+// Given an integer array nums sorted in non-decreasing order, remove the duplicates in-place such that each unique element appears only once. The relative order of the elements should be kept the same.
+// Since it is impossible to change the length of the array in some languages, you must instead have the result be placed in the first part of the array nums. More formally, if there are k elements after removing the duplicates, then the first k elements of nums should hold the final result. It does not matter what you leave beyond the first k elements.
+// Return k after placing the final result in the first k slots of nums.
+// Do not allocate extra space for another array. You must do this by modifying the input array in-place with O(1) extra memory.
+
+// This approach does not work because it uses extra memory.
+// The correct solution should alter the existing array:
+var removeDuplicates0 = function(nums) {
+    let newArr = [];
+    for (let i = 0; i < nums.length; i ++) {
+        if (!newArr.includes(nums[i])) {
+            newArr.push(nums[i]);
+        }
+    }
+    return newArr.length;
+};
+// console.log(removeDuplicates0([0,0,1,1,1,2,2,3,3,4]));
+
+// This solution uses two indexes to compare if the previous index is a duplicate of the current index, if it is not it inserted into the current index and the inserIndex count is updated. This rearranges the existing array with the numbers sorted in a nin duplicated manner. Any numbers after the initial non-repeating numbers leftover do not matter since only the count ios returned:
+var removeDuplicates = function (nums) {
+    let insertIndex = 0;
+    for (let i = 0; i < nums.length; i++) {
+        if (nums[i - 1] !== nums[i]) {
+            nums[insertIndex] = nums[i];
+            insertIndex++;
+        }
+    }
+    return insertIndex;
+};
+// console.log(removeDuplicates([0,0,1,1,1,2,2,3,3,4]));
