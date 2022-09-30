@@ -60,3 +60,36 @@ var removeDuplicates = function (nums) {
     return insertIndex;
 };
 // console.log(removeDuplicates([0,0,1,1,1,2,2,3,3,4]));
+
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
+
+// Given an integer array nums and an integer val, remove all occurrences of val in nums in-place. The relative order of the elements may be changed.
+// Since it is impossible to change the length of the array in some languages, you must instead have the result be placed in the first part of the array nums. More formally, if there are k elements after removing the duplicates, then the first k elements of nums should hold the final result. It does not matter what you leave beyond the first k elements.
+// Return k after placing the final result in the first k slots of nums.
+// Do not allocate extra space for another array. You must do this by modifying the input array in-place with O(1) extra memory.
+
+// This solution uses two pointers to check the array. It checks the first index against {val} and if it is a match it changes that num to the last index of the array and decrements the right pointer by. If it is not the same as {val} it increments to the next index and repeats the process until it completes the loop. The final result is a trimmed array removing instances of {val} up to k elements. Any nums after k are ignored:
+var removeElement = function (nums, val) {
+    let left = 0;
+    let right = nums.length - 1;
+
+    while (left <= right) {
+        console.log("nums-array: " + nums);
+        if (nums[left] === val) {
+            nums[left] = nums[right];
+            right--;
+            console.log("right: " + right);
+        } else {
+            left++;
+            console.log("left: " + left);
+        }
+    }
+    console.log("trimmed-array: " + nums);
+    return left;
+};
+// console.log(removeElement([0,1,2,2,3,0,4,2], 2));
+
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
+
