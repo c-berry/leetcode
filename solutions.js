@@ -97,14 +97,19 @@ var removeElement = function (nums, val) {
 var strStr = function(haystack, needle) {
     return haystack.indexOf(needle);
 };
-// console.log(strStr("sadbutsad"));
+// console.log(strStr("sadbutsad", "sad"));
 
 // This method uses the bare structures of strings and arrays without any built-in methods. This is what employers want to see and should be reviewed.
 var strStr2 = function(haystack, needle) {
     if (haystack.length >= needle.length) {
+        console.log("hay.length: " + haystack.length);
+        console.log("needle.length: " + needle.length);
         let j;
         for (let i = 0; i < haystack.length; i++) {
+            console.log("i: " + i);
             for (j = 0; j < needle.length; j++) {
+                console.log("j: " + j);
+                console.log("needle[j] = " + needle[j] + ", haystack[i + j] = " + (haystack[i + j]));
                 if (needle[j] !== haystack[i + j]) break;
             }
             if (j === needle.length) return i;
@@ -112,7 +117,10 @@ var strStr2 = function(haystack, needle) {
     }
     return -1;
 };
-// console.log(strStr2("sadbutsad"));
+// console.log(strStr2("sadbutsad", "sad"));
+// console.log(strStr2("notsad", "sad"));
+// console.log(strStr2("notsadnope", "nope"));
+// console.log(strStr2("notsadatall", "happy"));
 
 //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
 //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
