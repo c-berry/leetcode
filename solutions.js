@@ -99,6 +99,21 @@ var strStr = function(haystack, needle) {
 };
 // console.log(strStr("sadbutsad"));
 
+// This method uses the bare structures of strings and arrays without any built-in methods. This is what employers want to see and should be reviewed.
+var strStr2 = function(haystack, needle) {
+    if (haystack.length >= needle.length) {
+        let j;
+        for (let i = 0; i < haystack.length; i++) {
+            for (j = 0; j < needle.length; j++) {
+                if (needle[j] !== haystack[i + j]) break;
+            }
+            if (j === needle.length) return i;
+        }
+    }
+    return -1;
+};
+// console.log(strStr2("sadbutsad"));
+
 //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
 //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
 
