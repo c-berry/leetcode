@@ -186,3 +186,27 @@ var isValid = function(s) {
 
 //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
 //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
+
+// Given an integer n, determine the alternating sum of its digits. Add up all the digits, taking the first digit with a positive sign, the second digit with a negative sign, the third digit with a positive sign...
+function solution(n) {
+    // Hold var of result
+    let result = 0;
+    // Convert integer (n) into an array
+    let n2 = String(n).split("").map(Number);
+    // Loop thru array
+    for (let i = 0; i < n2.length; i++) {
+        // If the index is even use the pos sign
+        if (i % 2 === 0) {
+            result += n2[i];
+        } else {
+            // If index is odd use the negative sign
+            result -= n2[i];
+        }
+    }
+    return result;
+}
+// console.log(solution(12345));
+
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
+
