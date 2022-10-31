@@ -362,3 +362,17 @@ var searchInsert = function(nums, target) {
 //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
 
 
+var plusOne = function(digits) {
+    // Join the digits with no space and add 1
+    let str = digits.join("");
+    let num = BigInt(str)+ BigInt(1);
+    // Convert the num back into an array
+    num = num.toString().split('').map((num) => parseInt(num));
+    return num;
+};
+// console.log(plusOne([1,2,3]));
+// console.log(plusOne([4,3,2,1]));
+
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
+
