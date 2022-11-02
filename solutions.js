@@ -376,3 +376,27 @@ var plusOne = function(digits) {
 //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
 //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
 
+// Given a non-negative integer x, return the square root of x rounded down to the nearest integer. The returned integer should be non-negative as well.
+var mySqrt = function(x) {
+    return Math.floor(Math.sqrt(x));
+};
+// console.log(mySqrt(4));
+// console.log(mySqrt(8));
+
+// Not using built-in methods:
+var mySqrt2 = function(x) {
+    let sqrt = 1;
+    if(x === 0){
+        return 0;
+    }
+    for(let i = 1; i * i <= x; i++){
+        sqrt = i;
+    }
+    return sqrt;
+};
+// console.log(mySqrt2(4));
+// console.log(mySqrt2(8));
+
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
+
