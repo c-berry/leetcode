@@ -480,4 +480,27 @@ var isSameTree2 = function(p, q) {
 //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
 //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
 
+// Converts string to array, reverses it, then converts back to string
+const reverse = (str) => {
+    const toArr = str.split("");
+    const reversed = toArr.reverse();
+    return reversed.join("");
+}
+
+// Removes all non-alphanumeric characters and converts to lowercase
+const lowerTrim = (str) => {
+    const trimmed = str.replace(/[^a-z0-9]/gi, '');
+    return trimmed.toLowerCase();
+
+}
+
+var isPalindrome2 = function(s) {
+    const alphaNum = lowerTrim(s);
+    return alphaNum === reverse(alphaNum);
+};
+// console.log(isPalindrome2("A man, a plan, a canal: Panama"));
+// console.log(isPalindrome2("race a car"));
+
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
 
