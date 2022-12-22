@@ -839,3 +839,29 @@ function invertTree(root) {
 //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
 //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
 
+// The Hamming distance between two integers is the number of positions at which the corresponding bits are different.
+//  Given two integers x and y, return the Hamming distance between them.
+var hammingDistance = function (x, y) {
+    var bin1 = x.toString(2);
+    var bin2 = y.toString(2);
+    var count = 0;
+
+    while (bin1.length !== 32)
+        bin1 = bin1.replace('', 0);
+
+    while (bin2.length !== 32)
+        bin2 = bin2.replace('', 0);
+
+    for (var i = 0; i < 32; i++) {
+
+        if (bin1[i] !== bin2[i])
+            count++;
+    }
+
+    return count;
+}
+
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
+
+
