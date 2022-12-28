@@ -905,3 +905,28 @@ function invertTree2(root) {
 //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
 //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
 
+// Given the root of a binary tree, return the inorder traversal of its nodes' values.
+// Example 1:
+// Input: root = [1,null,2,3]
+// Output: [1,3,2]
+var inorderTraversal = function(root) {
+    var stack = [],
+        res = [];
+
+    while(true){
+        if(root !== null){
+            stack.push(root);
+            root = root.left;
+        } else {
+            if(stack.length === 0) break;
+            root = stack.pop();
+            res.push(root.val);
+            root = root.right;
+        }
+    }
+
+    return res;
+};
+
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
